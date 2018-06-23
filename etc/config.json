@@ -4,6 +4,8 @@
     "db":{
         "name": "heroku_nj40f56t",
         "host": "ds261470.mlab.com",
+        "user": "heroku_nj40f56t",
+        "password": "md66or6jp062cds3751hemgq5s",
         "port": 61470
     }
 }

@@ -7,7 +7,8 @@ import '../models/Company';
 const Company = mongoose.model('Company');
 
 export function setUpConnection(){
-	mongoose.connect(`mongodb://${config.db.host}:${config.db.port}/${config.db.name}`);
+	//mongoose.connect(`mongodb://${config.db.host}:${config.db.port}/${config.db.name}`);
+    mongoose.connect(`mongodb://${config.db.user}:${config.db.password}@${config.db.host}:${config.db.port}/${config.db.name}`);
 }
 
 export function listCompanies(){
