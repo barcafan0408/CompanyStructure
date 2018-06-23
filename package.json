@@ -2,14 +2,15 @@
   "name": "company-structure-app",
   "version": "1.0.0",
   "description": "",
-  "main": "webpack.config.js",
+  "main": "public/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "webpack-devserver": "webpack-dev-server --debug --hot --devtool eval-source-map --output-pathinfo --watch --colors --inline --content-base public --port 8090 --host 0.0.0.0",
+    "dev": "webpack-dev-server --mode development --open",
     "start": "babel-node server/app.js",
     "heroku-postbuild": "webpack -p" 
   },
-  "author": "",
+  "author": "alex bezpalko",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.18.0",
