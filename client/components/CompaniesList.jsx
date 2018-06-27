@@ -30,6 +30,7 @@ const CompaniesList = React.createClass({
                             last={company.last}
                             level={company.level}
                             onDelete={this.props.onCompanyDelete.bind(null, company)}
+                            onEdit={this.props.onCompanyEdit.bind(null, company)}
                         >                               
                         </Company>
                     )

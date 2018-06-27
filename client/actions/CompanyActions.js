@@ -43,6 +43,16 @@ const CompanyActions = {
         .catch(err =>
             console.error(err)
         );
+    },
+
+    editCompany(company) {
+        api.editCompany(company)
+        .then(() =>
+            this.loadCompanies()
+        )        
+        .catch(err =>
+            console.error(err)
+        );
     }
     
 };
