@@ -11,6 +11,8 @@ let _isLoading = true;
 let _companies = [];
 let _companiesTree = [];
 
+//let _itChange = true;
+
 function formatCompany(company) {
     return {
         id: company._id,
@@ -67,6 +69,9 @@ const TasksStore = Object.assign({}, EventEmitter.prototype, {
     getCompanies() {
         return _companies;
     },    
+    //itChange() {
+    //    return _itChange;
+    //},
 });
 
 AppDispatcher.register(function(action) {

@@ -4,6 +4,7 @@ import CompaniesStore from '../stores/CompaniesStore';
 import CompanyActions from '../actions/CompanyActions';
 
 import NewCompany from './NewCompany.jsx';
+import EditCompany from './EditCompany.jsx';
 import CompaniesList from './CompaniesList.jsx';
 
 import './App.less';
@@ -17,7 +18,7 @@ function getStateFromFlux() {
 
 const App = React.createClass({
 	getInitialState() {
-        return getStateFromFlux();
+        return getStateFromFlux();        
     },
 
     componentWillMount() {        
@@ -48,13 +49,28 @@ const App = React.createClass({
         }
     },
 
+    handleCompanyEdit(company) {
+        this.setState({itChange: true, editCompany: company});        
+    },
+
+    handleCompanyEditFinish(company) {
+        CompanyActions.editCompany(company);
+        this.setState({itChange: false});        
+    },
+
 	render() {
 		return (
 			<div className='App'>				
-                <NewCompany className='NewCompany' companies={this.state.companies} onCompanyAdd={this.handleCompanyAdd}/>
+                <div className='AddEditCompany'>
+                    <NewCompany companies={this.state.companies} onCompanyAdd={this.handleCompanyAdd}/>
+                    {this.state.itChange ?
+                        <EditCompany company={this.state.editCompany} onCompanyEditFinish={this.handleCompanyEditFinish}/>
+                    : null}
+                </div>
                 <div className='Companies'>
                     <h2 className='Title'>Companies' structure</h2>
-                    <CompaniesList className='CompaniesList' companies={this.state.companies} onCompanyDelete={this.handleCompanyDelete} />
+                    <CompaniesList className='CompaniesList' companies={this.state.companies} 
+                        onCompanyDelete={this.handleCompanyDelete} onCompanyEdit={this.handleCompanyEdit}/>
                 </div>
 		 	</div>
 		);

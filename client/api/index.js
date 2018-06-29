@@ -15,4 +15,8 @@ export default {
         return axios.delete(`${apiPrefix}/companies/${companyId}`);
     },
 
+    editCompany(data) {
+        return axios.put(`${apiPrefix}/companies`, data);
+    },
+
 }

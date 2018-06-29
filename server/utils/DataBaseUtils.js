@@ -29,3 +29,8 @@ export function createCompany(data) {
 export function deleteCompany(id) {
     return Company.findById(id).remove();
 }
+
+export function putCompany(data) {
+    var company = Company.findByIdAndUpdate(data.id, data);    
+    return company;
+}

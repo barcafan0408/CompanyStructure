@@ -35,6 +35,10 @@ app.delete('/companies/:id', (req, res) => {
 	db.deleteCompany(req.params.id).then(data => res.send(data));        
 });
 
+app.put('/companies', (req, res) => {
+	db.putCompany(req.body).then(data => res.send(data));        
+});
+
 const server = app.listen(PORT, () => {
     console.log(`Server is up and running on port ${PORT}`);
 });
